@@ -6,7 +6,7 @@ body {
 h1{
   text-align:center;
   font-size:32px;
-  
+}
 /* start nav bar css */
 /* Navbar container */
 .navbar {
@@ -78,3 +78,8 @@ h1{
   display: block;
 }
 /* end nav bar css */
+
+
+containercfu{
+  height: 50px;
+}
