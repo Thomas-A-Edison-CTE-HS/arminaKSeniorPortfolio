@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Armina Khan — Home</title>
+  <title>Armina Khan — About</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="wrap">
+    <!-- Sticky Navbar -->
     <header>
-      <div class="logo">AK</div>
+      <a href="index.html" class="logo">AK</a>
       <nav>
         <a href="index.html" class="active">Home</a>
         <a href="projects.html">Projects</a>
@@ -19,25 +20,43 @@
       </nav>
     </header>
 
-    <section class="hero">
-      <div class="intro">
-        <h1>Hello, I’m Armina.</h1>
-        <p>I’m a computer science student passionate about creating modern, interactive applications and learning tools.</p>
-        <a href="projects.html" class="btn">View Projects</a>
-      </div>
-      <aside class="card">
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Profile" class="avatar">
-        <div class="contact-info">
-          <strong>Email:</strong><br>
-          <small>armina@example.com</small>
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="about-grid">
+        <!-- Left: Profile Image -->
+        <div class="about-image fade-in-left">
+          <img src="your-image.jpg" alt="Armina Khan" class="avatar-circle">
         </div>
-      </aside>
-    </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I enjoy coding, solving problems, and building software that is both functional and accessible. I focus on learning new technologies while applying them in real-world projects.</p>
+        <!-- Right: Text -->
+        <div class="about-text fade-in-right">
+          <h1>Hi, I’m Armina Khan!</h1>
+          <p>I’m a computer science student with a passion for creating interactive applications and learning tools. I enjoy problem-solving, exploring new technologies, and building software that is both functional and user-friendly.</p>
+
+          <h2>Interests</h2>
+          <p>Machine Learning, Web Development, Data Visualization, Neurology & Healthcare Tech, Entrepreneurship.</p>
+
+          <h2>Education</h2>
+          <p>Attending Thomas A. Edison CTE High School & in the Web Development program. Aiming to pursue a career in technology applied to healthcare.</p>
+        </div>
+      </div>
     </section>
   </div>
+
+  <script>
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in-left, .fade-in-right');
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
